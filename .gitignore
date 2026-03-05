@@ -15,3 +15,9 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Personal Additions
+Assets/Tower Defense (top-down)/PNG/
+Assets/Tower Defense (top-down)/Preview.png
+Assets/Tower Defense (top-down)/Preview_KenneyNL.png
+Assets/Tower Defense (top-down)/Sample.png
