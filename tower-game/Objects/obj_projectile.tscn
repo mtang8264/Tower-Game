@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://basncn48lofxc"]
+
+[ext_resource type="Script" uid="uid://cn1muprsb05rl" path="res://Scripts/ProjectileController.gd" id="1_dct51"]
+[ext_resource type="Texture2D" uid="uid://btejcdd3el6jt" path="res://Sprites/spr_rocket.png" id="1_fhblu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hr7f2"]
+
+[node name="Projectile" type="Sprite2D" unique_id=1886212248]
+texture = ExtResource("1_fhblu")
+script = ExtResource("1_dct51")
+
+[node name="detection_range" type="Area2D" parent="." unique_id=370648589]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_range" unique_id=2071182684]
+shape = SubResource("CircleShape2D_hr7f2")
+
+[connection signal="area_entered" from="detection_range" to="." method="_on_area_entered"]

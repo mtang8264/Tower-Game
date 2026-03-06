@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://btejcdd3el6jt" path="res://Sprites/spr_rocket.png" id="4_h8oxk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3lqi"]
-radius = 250.0
+radius = 300.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_do2qm"]
+radius = 225.0
 
 [node name="ObjTowerRocket" type="Node2D" unique_id=1130926839]
 script = ExtResource("1_p3lqi")
@@ -25,5 +28,15 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange" unique_id=966279250]
 shape = SubResource("CircleShape2D_p3lqi")
 
+[node name="FireRange" type="Area2D" parent="." unique_id=654673777]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange" unique_id=1676497151]
+shape = SubResource("CircleShape2D_do2qm")
+
 [connection signal="area_entered" from="DetectionRange" to="." method="_on_detection_area_entered"]
 [connection signal="area_exited" from="DetectionRange" to="." method="_on_detection_area_exited"]
+[connection signal="area_entered" from="FireRange" to="." method="_on_fire_area_entered"]
+[connection signal="area_exited" from="FireRange" to="." method="_on_fire_area_exited"]

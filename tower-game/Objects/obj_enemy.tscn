@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogxav"]
 size = Vector2(47, 61)
 
-[node name="Area2D" type="Area2D" unique_id=1512514369]
+[node name="Enemy" type="Area2D" unique_id=1512514369]
 collision_layer = 2
 collision_mask = 0
 monitoring = false
@@ -15,8 +15,6 @@ script = ExtResource("1_ogxav")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564424650]
 shape = SubResource("RectangleShape2D_ogxav")
 
-[node name="ObjEnemy" type="Node2D" parent="." unique_id=1997012588]
-
-[node name="Sprite2D" type="Sprite2D" parent="ObjEnemy" unique_id=809830827]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=809830827]
 scale = Vector2(2, 2)
 texture = ExtResource("1_enwkh")
