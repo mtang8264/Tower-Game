@@ -7,6 +7,8 @@ extends Node2D
 
 @export_range(0,1) var look_turn_lerp_amount: float = 0.25
 
+@onready var sprite2d: Sprite2D = find_child("Sprite2D")
+
 var in_range_enemies: Array = []
 
 func _ready() -> void:
@@ -15,13 +17,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	look_at_enemy()
 
+## Returns the EnemyController of the enemy that is further along its path by percentage.
+## Returns null if there are no enemies in range.
 func get_most_progressed_enemy() -> EnemyController:
 	if len(in_range_enemies) == 0:
 		return null
-		
+	
 	var enemy = null
 	var ratio = 0.0
-	
 	for e in in_range_enemies:
 		if enemy == null:
 			enemy = e
@@ -29,16 +32,17 @@ func get_most_progressed_enemy() -> EnemyController:
 		elif e.get_progress_ratio() > ratio:
 			enemy = e
 			ratio = e.get_progress_ratio()
-	
 	return enemy
 
+## Turns the Sprite2D child of the tower to look at the enemy that is further progressed.
 func look_at_enemy() -> void:
 	var ideal_angle = get_look_angle_to_enemy()
 	if ideal_angle == 6969:
 		return
-	var angle = lerp(rotation, ideal_angle, look_turn_lerp_amount)
-	rotation = angle
+	var angle = lerp(sprite2d.rotation, ideal_angle, look_turn_lerp_amount)
+	sprite2d.rotation = angle
 
+## Returns the angle in radians that the tower should be rotated to look at the enemy that is furthest progressed.
 func get_look_angle_to_enemy() -> float:
 	var enemy = get_most_progressed_enemy()
 	if enemy == null:
