@@ -2,7 +2,9 @@
 
 [ext_resource type="TileSet" uid="uid://cu52jphf60urw" path="res://TM_Default.tres" id="2_idj7w"]
 [ext_resource type="Script" uid="uid://dlqoxqsjklff5" path="res://Scripts/EnemyMaster.gd" id="2_kln2b"]
+[ext_resource type="Script" uid="uid://bcwbumvd3ea4a" path="res://Scripts/PathMaster.gd" id="2_v1gob"]
 [ext_resource type="Script" uid="uid://1h3faxdhl4dn" path="res://Scripts/EnemySchedule.gd" id="3_kln2b"]
+[ext_resource type="Script" uid="uid://bb0gwagqfipkt" path="res://Scripts/TowerMaster.gd" id="4_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cem24x5gpvvwp" path="res://Objects/obj_tower_rocket.tscn" id="4_rgh2o"]
 
 [sub_resource type="Curve2D" id="Curve2D_rgh2o"]
@@ -34,6 +36,7 @@ tile_set = ExtResource("2_idj7w")
 
 [node name="Path" type="Path2D" parent="LevelLayout" unique_id=890347878]
 curve = SubResource("Curve2D_rgh2o")
+script = ExtResource("2_v1gob")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1669265831 node_paths=PackedStringArray("path")]
 script = ExtResource("2_kln2b")
@@ -41,6 +44,7 @@ path = NodePath("../LevelLayout/Path")
 enemy_schedule = SubResource("Resource_rgh2o")
 
 [node name="Towers" type="Node2D" parent="." unique_id=583989670]
+script = ExtResource("4_pbw6q")
 
 [node name="ObjTowerRocket" parent="Towers" unique_id=1130926839 instance=ExtResource("4_rgh2o")]
 position = Vector2(320, 320)
