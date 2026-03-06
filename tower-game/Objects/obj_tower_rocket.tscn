@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cem24x5gpvvwp"]
+
+[ext_resource type="Texture2D" uid="uid://c1lmvrbmmd6ef" path="res://Sprites/spr_tower_rocket.png" id="1_dipew"]
+[ext_resource type="Script" uid="uid://dtx2x2h5oha2u" path="res://Scripts/TowerController.gd" id="1_p3lqi"]
+[ext_resource type="Texture2D" uid="uid://bcccped6drgn0" path="res://Sprites/spr_tower_rocket_recharge.png" id="3_do2qm"]
+[ext_resource type="Texture2D" uid="uid://btejcdd3el6jt" path="res://Sprites/spr_rocket.png" id="4_h8oxk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3lqi"]
+radius = 250.0
+
+[node name="ObjTowerRocket" type="Node2D" unique_id=1130926839]
+script = ExtResource("1_p3lqi")
+sprite_ready = ExtResource("1_dipew")
+sprite_recharging = ExtResource("3_do2qm")
+sprite_projectile = ExtResource("4_h8oxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953931350]
+texture = ExtResource("1_dipew")
+
+[node name="DetectionRange" type="Area2D" parent="." unique_id=1500785565]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionRange" unique_id=966279250]
+shape = SubResource("CircleShape2D_p3lqi")
+
+[connection signal="area_entered" from="DetectionRange" to="." method="_on_detection_area_entered"]
+[connection signal="area_exited" from="DetectionRange" to="." method="_on_detection_area_exited"]

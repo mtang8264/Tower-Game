@@ -15,10 +15,18 @@ run/main_scene="uid://403nj6ndi2w2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameMaster="*uid://bp50h5tpces6n"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[layer_names]
+
+2d_physics/layer_2="enemy"
 
 [physics]
 

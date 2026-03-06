@@ -1,3 +1,4 @@
+class_name EnemyMaster
 extends Node
 
 @export var path: Path2D
@@ -10,10 +11,11 @@ extends Node
 
 var timer: float = 0.0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var enemies: Array = []
+var last_enemy_check: int = 0
 
+func _ready() -> void:
+	GameMaster.set_enemy_master(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,3 +34,17 @@ func _spawn(delta: float) -> void:
 		var e = enemy_objects[i].instantiate()
 		e.path = path
 		add_child(e)
+
+## Returns an array containing all active enemies.
+func get_active_enemies() -> Array:
+	# If this isn't the first call this tick, just return the list
+	if last_enemy_check == Time.get_ticks_msec():
+		return enemies
+	# Find all children that are Enemies.
+	enemies = []
+	var children = get_children()
+	for child in children:
+		if child is EnemyController:
+			enemies.append(child)
+	last_enemy_check = Time.get_ticks_msec() # Record the tick
+	return enemies

@@ -1,3 +1,4 @@
+class_name EnemyController
 extends Node2D
 
 ## The speed, in pixels, that the enemy moves per second.
@@ -15,10 +16,12 @@ var progress: float = 0.0
 ## Used to check when the enemy has completed its path.
 var last_progress_ratio: float = -1
 
+var spawn_timestamp: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_spawn_path_follower()
-
+	spawn_timestamp = Time.get_ticks_msec()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,3 +52,6 @@ func _move(delta: float) -> void:
 func _reached_path_end() -> void:
 	path_follow.queue_free()
 	queue_free()
+
+func get_progress_ratio() -> float:
+	return path_follow.progress_ratio
