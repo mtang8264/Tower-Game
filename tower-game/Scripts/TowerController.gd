@@ -45,7 +45,7 @@ func _shoot(delta: float) -> void:
 			shoot_timer = 0.0
 			var p = projectile_obj.instantiate()
 			add_child(p)
-			p.target = get_most_progressed_enemy()
+			p.initialize(ProjectileController.ProjectileMode.DIRECTIONAL, Vector2(in_range_enemies[0].global_position.x - global_position.x,in_range_enemies[0].global_position.y - global_position.y))
 	elif state == TowerState.RECHARGING:
 		shoot_timer += delta
 		if shoot_timer >= recharge_time:
