@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://btejcdd3el6jt" path="res://Sprites/spr_rocket.png" id="4_h8oxk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p3lqi"]
-radius = 300.0
+radius = 225.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_do2qm"]
 radius = 225.0
