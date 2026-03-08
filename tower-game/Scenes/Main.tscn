@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://cu52jphf60urw" path="res://TM_Default.tres" id="2_idj7w"]
 [ext_resource type="Script" uid="uid://dlqoxqsjklff5" path="res://Scripts/EnemyMaster.gd" id="2_kln2b"]
 [ext_resource type="Script" uid="uid://bcwbumvd3ea4a" path="res://Scripts/PathMaster.gd" id="2_v1gob"]
-[ext_resource type="Script" uid="uid://1h3faxdhl4dn" path="res://Scripts/EnemySchedule.gd" id="3_kln2b"]
+[ext_resource type="Script" uid="uid://1h3faxdhl4dn" path="res://Scripts/Resources/EnemySchedule.gd" id="3_kln2b"]
 [ext_resource type="Script" uid="uid://bb0gwagqfipkt" path="res://Scripts/TowerMaster.gd" id="4_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://cem24x5gpvvwp" path="res://Objects/obj_tower_rocket.tscn" id="4_rgh2o"]
 
@@ -21,6 +21,7 @@ schedule = {
 3.0: "Basic",
 10.0: "Basic"
 }
+recurring = [[2.5, "Basic", 5]]
 metadata/_custom_type_script = "uid://1h3faxdhl4dn"
 
 [node name="Node2D" type="Node2D" unique_id=384660046]
