@@ -16,7 +16,7 @@ script = ExtResource("1_p3lqi")
 sprite_ready = ExtResource("1_dipew")
 sprite_recharging = ExtResource("3_do2qm")
 sprite_projectile = ExtResource("4_h8oxk")
-look_turn_lerp_amount = 0.559
+look_turn_lerp_amount = 0.66
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1953931350]
 texture = ExtResource("1_dipew")
